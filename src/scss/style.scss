@@ -65,6 +65,24 @@ a {
 
 @import "components/header";
 
+.practice-area-picture-container {
+	height: 400px;
+	// background-color: blue;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.area-managers {
+	h2 {
+		font-size: 26px;
+	}
+	.manager-name {
+		font-weight: 400;
+		font-size: 20px;
+		color: #6f6f6f;
+	}
+}
 
 // border-top
 .heading-border-top {
@@ -97,10 +115,13 @@ a {
 		}
 	}		
 }
-
+.title-centered {
+	text-align: center;
+	margin-bottom: 45px;
+}
 // sections
 .pb_section {
-	padding: 9em 0;
+	padding: 6em 0;
 	position: relative;
 	display: block;
 	@include media-breakpoint-down(md) {
@@ -117,6 +138,28 @@ a {
 			position: absolute;
  		}
 	}
+}
+.offices-section {
+	.container {
+		background-color: #000000db;
+	}
+}
+.with-absolute-bg {
+	position: relative;
+	.bg-absolute {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+}
+.blur-2px {
+	filter: blur(2px);
+}
+
+.about-us-section {
+	padding-bottom: 12em;
 }
 
 // images absolute
