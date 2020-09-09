@@ -1,0 +1,26 @@
+{
+  "name": "incade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "live-server": "^1.2.1",
+    "node-sass": "^4.14.1",
+    "node-sass-middleware": "^0.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamilaRivera/incade.git"
+  },
+  "author": "Camila Rivera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CamilaRivera/incade/issues"
+  },
+  "homepage": "https://github.com/CamilaRivera/incade#readme"
+}
