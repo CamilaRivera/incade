@@ -15,7 +15,7 @@ app.use(
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
+app.get('/ali', (req, res) => {
     res.send('An alligator approaches!');
 });
 
