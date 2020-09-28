@@ -127,6 +127,9 @@ a {
 	@include media-breakpoint-down(md) {
 		padding: 4em 0;
 	}
+	&.bg-light {
+		color: #6f6f6f;
+	}
 	&.pb_bg-half {
 		&:before {
 			top: 50%;

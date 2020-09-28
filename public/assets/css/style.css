@@ -1226,6 +1226,8 @@ a {
   @media (max-width: 991px) {
     .pb_section {
       padding: 4em 0; } }
+  .pb_section.bg-light {
+    color: #6f6f6f; }
   .pb_section.pb_bg-half:before {
     top: 50%;
     content: "";
