@@ -117,7 +117,7 @@
 .pb_cover_v4 {
 	@extend .bg_image;
 	position: relative;
-	height: 95vh;
+	// height: 95vh;
 	@include media-breakpoint-down(sm) {
 		height: inherit;
 		text-align: center!important;
@@ -126,7 +126,7 @@
 	> .container {
 		position: relative;
 		> .row {
-			height: 95vh;
+			// height: 95vh;
 			@include media-breakpoint-down(sm) {
 				height: inherit;
 				padding: 6em 0;
@@ -420,4 +420,14 @@
 	right: 0;
 	bottom: 0;
 	background: rgba($black, .7);
+}
+
+.row.align-items-center.justify-content-end > div {
+	@media screen and (min-width: 600px){
+		padding-top: 100px;
+	}
+}
+
+.pb_section.pb_section_v1.about-us-section {
+	overflow: hidden;
 }
