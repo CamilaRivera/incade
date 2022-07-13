@@ -1,10 +1,13 @@
 // navbar
 
 .pb_navbar {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 100;
+	@include media-breakpoint-up(sm) {
+		position: fixed;
+		right: 0;
+		left: 0;
+		top: 0;
+		z-index: 100;
+	}
 	width: 100%;
 	font-family: $font-family-sans-serif;
 	.navbar-toggler {
@@ -69,12 +72,6 @@
 		}
 	}
 	&.scrolled  {
-		position: fixed;
-		right: 0;
-		left: 0;
-		top: 0;
-		margin-top: -130px;
-
 		.navbar-nav {
 			@include media-breakpoint-down(md) {
 				background: none;
