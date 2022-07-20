@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap');
+
+/* MENU GRADIENT */
+
+.demo_changer .btn-primary,
+.demo_changer .demo-icon,
+.menu-color-gradient .btn-primary,
+.menu-color-gradient .label-danger,
+.menu-color-gradient .navbar-brand,
+.menu-color-gradient .navbar-default .navbar-nav > .open > a,
+.menu-color-gradient .navbar-default .navbar-nav > .open > a:hover,
+.menu-color-gradient .navbar-default .navbar-nav > .open > a:focus,
+.menu-color-gradient .navbar-default .navbar-nav > li > a:focus,
+.menu-color-gradient .navbar-default .navbar-nav > li > a:active,
+.menu-color-gradient .navbar-default .navbar-nav > li > a.active,
+.menu-color-gradient .navbar-default .navbar-nav > li > a:hover {
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+    background: #ddd !important;
+    color: #2D95EF !important; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;
+}
+
+.menu-color-gradient .navbar-default .navbar-nav > li > a .dropme:hover {color: #ffffff;}
+.menu-color-gradient .navbar-default .navbar-toggle:hover,
+.menu-color-gradient .coldesc:hover {
+    background:#377DFF;
+    color:#fff !important;
+}
+
+.demo_changer .btn-primary,
+.menu-color-gradient .form-control:focus {
+    border-color: #377DFF;
+    outline: 0;
+    box-shadow:none;
+}
+.menu-color-gradient .btn-primary {
+    border-radius:0;
+    font-size:15px;
+    font-weight: 500;
+    background-color: #2D95EF !important;
+    border-color: #2D95EF !important;
+    color: #fff !important;
+    -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;
+}
+.menu-color-gradient .box ul li:hover .fa {
+    color: #545CB0 !important;
+}
+.menu-color-gradient .magnifier {
+    background-color:rgba(255,175,75,.9);
+}
+
+/* DARK STYLE */
+
+.dark-style .coldesc {
+    background:#333;
+    color:#fff;
+    margin-bottom: 10px;
+    text-align:center;
+}
+.dark-style .navbar-default .ttmenu-content {
+    border-radius: 0;     
+}
+.dark-style .navbar-default .ttmenu-content .tab-content{
+    border: none;
+    padding: 0;
+}
+.dark-style .dropdown-menu {
+    background-color:#ffffff !important;
+}
+.dark-style .navbar-default .dropdown-menu li a,
+.dark-style .ttmenu-content .box li a,
+.dark-style .ttmenu-content .box li:before {
+    color:#7B7B7B !important;
+}
+.dark-style .navbar-default .dropdown-menu li a {font-size: 1.1em;}
+.dark-style .ttmenu-content .box li a:hover,
+.dark-style .ttmenu-content .box li a:focus {
+    background:none !important;
+}
+
+.dark-style .ttmenu-content .box li {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+.dark-style .navbar-default .dropdown-menu li a:hover,
+.dark-style .navbar-default .dropdown-menu li a:focus {
+    background:#ffffff; 
+}
+
+.dark-style .form-control,
+.dark-style .searchbox-icon, .searchbox-submit,
+.dark-style .navbar-default {
+    background: #fff; /* Old browsers */
+    /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+}
+
+@media only screen and (max-width: 1200px) {
+.dark-style .navbar-default .ttmenu-content {padding: 0 20px;}
+    
+}
