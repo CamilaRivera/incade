@@ -68,7 +68,7 @@ body {
 
   .section-row-image-container {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 
     img {
       border-radius: 1rem;
@@ -78,7 +78,7 @@ body {
   }
 
   .section-row-text-container {
-    margin: 2rem auto;
+    margin-bottom: 5rem;
 
     .section-row-text-container-body {
       font-weight: 300;
@@ -88,6 +88,21 @@ body {
 
       p:last-child {
         margin-bottom: 0;
+      }
+    }
+
+    .accordion button[data-toggle=collapse] {
+      position: relative;
+      padding-left: 2rem;
+
+      &::before {
+        content: '-';
+        position: absolute;
+        left: 0.5rem;
+      }
+
+      &.collapsed::before {
+        content: '+';
       }
     }
   }
