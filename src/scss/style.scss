@@ -162,12 +162,21 @@ body {
     align-items: flex-start;
     padding-left: 10%;
     max-width: 44.25rem;
+
+    .header {
+      font-size: 3rem;
+    }
   
     em {
       color: $primary;
       text-transform: uppercase;
-      font-weight: 500;
+      font-weight: 700;
       font-style: normal;
+      font-size:3rem
+    }
+
+    p {
+      font-size: 2rem;
     }
   }
 }
@@ -187,4 +196,44 @@ body {
   font-weight: 300;
   font-size: 15px;
   line-height: 24px;
+}
+
+.contact-form-container {
+  font-weight: 300;
+  color: #444;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.contact-form-button {
+  width: 100%;
+}
+
+.navbar-brand {
+  width: 12.5rem;
+  height: 6.25rem;
+}
+
+.section-about__header-list {
+  color: $primary;
+  font-weight: 700;
+}
+
+.section-bold-content {
+  font-weight: 600;
+}
+
+.section-underline-content {
+  text-decoration: underline;
+}
+
+.fixed-whatsapp-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem; 
+
+  .fa-whatsapp {
+    font-size: 2rem;
+    padding: 0.375rem 0.5rem;
+  }
 }
