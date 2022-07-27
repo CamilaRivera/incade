@@ -37,6 +37,7 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.render('main', {
+    contactEmail: process.env.EMAIL_RECEIVER,
     dev: process.env.DEV,
     recaptchaSiteKey: process.env.RECAPTCH_V3_KEY,
     contactForm: {},
@@ -93,6 +94,7 @@ app.post('/contacto', async (req, res) => {
   const { email, name, message, token } = req.body;
   if (!await validateRecaptcha(token || '')) {
     res.render('main', {
+      contactEmail: process.env.EMAIL_RECEIVER,
       contactForm: {
         errors: {
           recaptcha: true,
@@ -109,6 +111,7 @@ app.post('/contacto', async (req, res) => {
   const errors = validateFormData({ email, name, message });
   if (Object.keys(errors).length > 0) {
     res.render('main', {
+      contactEmail: process.env.EMAIL_RECEIVER,
       contactForm: {
         errors: {
           message: `Los campos ${Object.values(errors).join(', ')} son obligatorios`
@@ -146,6 +149,7 @@ app.post('/contacto', async (req, res) => {
     if (err) {
       console.error(err);
       res.render('main', {
+        contactEmail: process.env.EMAIL_RECEIVER,
         contactForm: {
           success: false,
           data: {
@@ -160,6 +164,7 @@ app.post('/contacto', async (req, res) => {
     else {
       console.info('Email de contacto enviado con exito', email);
       res.render('main', {
+        contactEmail: process.env.EMAIL_RECEIVER,
         contactForm: {
           success: true,
           data: {
