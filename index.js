@@ -8,6 +8,7 @@ require('dotenv').config({
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 console.log('process.env.DEV', process.env.DEV);
 
+const nodemailer = require('nodemailer');
 const axios = require('axios');
 const express = require('express');
 const sassMiddleware = require('node-sass-middleware');
@@ -25,10 +26,10 @@ app.set('view engine', 'ejs');
 console.log('__dirname', __dirname);
 app.use(
   sassMiddleware({
-      src: __dirname + '/src/scss', 
-      dest: path.join(__dirname, 'public', 'assets', 'css'),
-      debug: true,
-      prefix: '/assets/css'     
+    src: __dirname + '/src/scss',
+    dest: path.join(__dirname, 'public', 'assets', 'css'),
+    debug: true,
+    prefix: '/assets/css'
   })
 );
 
@@ -40,6 +41,17 @@ app.get('/', (req, res) => {
     recaptchaSiteKey: process.env.RECAPTCH_V3_KEY,
     contactForm: {},
   });
+});
+
+// create reusable transporter object using the default SMTP transport
+const transporter = nodemailer.createTransport({
+  port: 465,               // true for 465, false for other ports
+  host: "smtp.gmail.com",
+  auth: {
+    user: process.env.SMTP_EMAIL,
+    pass: process.env.SMTP_PASS,
+  },
+  secure: true,
 });
 
 
@@ -78,7 +90,7 @@ app.get('/contacto', async (req, res) => {
 });
 
 app.post('/contacto', async (req, res) => {
-  const {email, name, message, token} = req.body;
+  const { email, name, message, token } = req.body;
   if (!await validateRecaptcha(token || '')) {
     res.render('main', {
       contactForm: {
@@ -92,13 +104,14 @@ app.post('/contacto', async (req, res) => {
       dev: process.env.DEV,
       recaptchaSiteKey: process.env.RECAPTCH_V3_KEY
     });
+    return;
   }
-  const errors = validateFormData({email, name, message});
+  const errors = validateFormData({ email, name, message });
   if (Object.keys(errors).length > 0) {
     res.render('main', {
       contactForm: {
         errors: {
-          message: `Los campos ${Object.values(errors).join(', ')} son obligatorios` 
+          message: `Los campos ${Object.values(errors).join(', ')} son obligatorios`
         },
         data: {
           email, name, message,
@@ -109,15 +122,54 @@ app.post('/contacto', async (req, res) => {
     });
     return;
   }
-  res.render('main', {
-    contactForm: {
-      success: true,
-      data: {
-        email, name, message,
-      },
-    },
-    dev: process.env.DEV,
-    recaptchaSiteKey: process.env.RECAPTCH_V3_KEY
+
+  // Send email
+  const mailData = {
+    from: process.env.SMTP_EMAIL,  // sender address
+    to: process.env.EMAIL_RECEIVER,   // list of receivers
+    subject: 'Formulario contacto despidojusto.cl',
+    text: `
+        Has recibido un contacto:
+        Email: ${email}
+        Nombre: ${name}
+        Mensaje: ${message}
+      `,
+    html: `
+      <b>Hola!</b><br>
+      Has recibido un contacto:<br/><br/>
+      <b>Email</b>: ${email}<br/>
+      <b>Nombre</b>: ${name}<br/>
+      <b>Mensaje</b>: ${message}<br/>
+      `,
+  };
+  transporter.sendMail(mailData, function (err, info) {
+    if (err) {
+      console.error(err);
+      res.render('main', {
+        contactForm: {
+          success: false,
+          data: {
+            email, name, message,
+          },
+          errors: { emailFailure: true },
+        },
+        dev: process.env.DEV,
+        recaptchaSiteKey: process.env.RECAPTCH_V3_KEY
+      });
+    }
+    else {
+      console.info('Email de contacto enviado con exito', email);
+      res.render('main', {
+        contactForm: {
+          success: true,
+          data: {
+            email, name, message,
+          },
+        },
+        dev: process.env.DEV,
+        recaptchaSiteKey: process.env.RECAPTCH_V3_KEY
+      });
+    }
   });
 });
 
