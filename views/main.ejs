@@ -32,7 +32,7 @@
       class="navbar navbar-expand-md navbar-light bg-light flex-md-row flex-column align-items-stretch"
     >
       <div class="d-flex">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="50 100 750 300"
@@ -175,7 +175,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto align-items-start">
               <li class="nav-item active">
-                <a class="nav-link" href="#"
+                <a class="nav-link" href="/"
                   >Inicio <span class="sr-only">(current)</span></a
                 >
               </li>
@@ -2652,50 +2652,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8 pr-md-5 pr-sm-0 mb-4">
-              <form action="/contacto" method="post">
-                <div class="row">
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="name">Nombre</label>
-                      <input
-                        type="text"
-                        class="form-control p-3 rounded-0"
-                        id="name"
-                        name="name"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md">
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                      <input
-                        name="email"
-                        type="email"
-                        class="form-control p-3 rounded-0"
-                        id="email"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="message">Mensaje</label>
-                  <textarea
-                    name="message"
-                    cols="30"
-                    rows="10"
-                    class="form-control p-3 rounded-0"
-                    id="message"
-                  ></textarea>
-                </div>
-                <div class="form-group">
-                  <input
-                    type="submit"
-                    class="btn btn-primary contact-form-button"
-                    value="Enviar"
-                  />
-                </div>
-              </form>
+              <%- include('partials/contactForm'); %>
             </div>
             <div class="col-md-4">
               <p>
@@ -2733,5 +2690,30 @@
         </div>
       </div>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=<%= recaptchaSiteKey %>"></script>
+    <script>
+      const form = document.querySelector('.contact-form');
+      const submitButton = document.querySelector('input[type=submit]');
+      form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        submitButton.setAttribute('disabled', 'disabled');
+        grecaptcha.ready(function() {
+          grecaptcha.execute('<%= recaptchaSiteKey %>', {action: 'contact'}).then(function(token) {
+            const tokenInput = document.createElement('input');
+            tokenInput.setAttribute('value', token);
+            tokenInput.setAttribute('type', 'hidden');
+            tokenInput.setAttribute('name', 'token');
+
+            // Remove listener
+            const formClone = form.cloneNode(true);
+            formClone.appendChild(tokenInput);
+            form.parentNode.replaceChild(formClone, form);
+
+            formClone.submit();
+          });
+        });
+      });
+    </script>
   </body>
 </html>
