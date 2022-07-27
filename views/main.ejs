@@ -208,6 +208,7 @@
       class="fixed-whatsapp-button"
       ><i class="fa fa-whatsapp"></i
     ></a>
+    <h1>Dev: <%= dev %></h1>
     <div id="main-carousel" class="carousel slide" data-ride="carousel">
       <!-- <div id="main-carousel" class="carousel slide" data-ride="false"> -->
       <div class="carousel-inner">
@@ -2651,7 +2652,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8 pr-md-5 pr-sm-0 mb-4">
-              <form action="#">
+              <form action="/contacto" method="post">
                 <div class="row">
                   <div class="col-md">
                     <div class="form-group">
@@ -2660,6 +2661,7 @@
                         type="text"
                         class="form-control p-3 rounded-0"
                         id="name"
+                        name="name"
                       />
                     </div>
                   </div>
@@ -2667,7 +2669,8 @@
                     <div class="form-group">
                       <label for="email">Email</label>
                       <input
-                        type="text"
+                        name="email"
+                        type="email"
                         class="form-control p-3 rounded-0"
                         id="email"
                       />
@@ -2678,6 +2681,7 @@
                 <div class="form-group">
                   <label for="message">Mensaje</label>
                   <textarea
+                    name="message"
                     cols="30"
                     rows="10"
                     class="form-control p-3 rounded-0"
