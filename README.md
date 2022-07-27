@@ -13,5 +13,5 @@ Build
 Run Prod
 
 ```
-NODE_ENV=production blabla
+NODE_ENV=production npm run server
 ```
