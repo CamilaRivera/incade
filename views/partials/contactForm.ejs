@@ -67,7 +67,7 @@
 <% } %>
 <%if (contactForm.errors?.recaptcha === true) { %>
   <div class="alert alert-danger" role="alert">
-    Recaptcha inv&aacute;lido. Si cree que esto ha sido un error, por favor envie un email directamente a <a href="mailto:info@despidojusto.cl">info@despidojusto.cl</a>
+    Recaptcha inv&aacute;lido. Si cree que esto ha sido un error, por favor envie un email directamente a <a href="mailto:<%= contactEmail %>"><%= contactEmail %></a>
   </div>
 <% } %>
 <%if (contactForm.errors?.message) { %>
@@ -78,7 +78,7 @@
 <%if (contactForm.errors?.emailFailure === true) { %>
   <div class="alert alert-danger" role="alert">
     Hubo un error al intentar mandar el mensaje de contacto, por favor intente nuevamente.
-    Si el error persiste, por favor envie un email directamente a <a href="mailto:info@despidojusto.cl">info@despidojusto.cl</a>
+    Si el error persiste, por favor envie un email directamente a <a href="mailto:<%= contactEmail %>"><%= contactEmail %></a>
   </div>
 <% } %>
 
