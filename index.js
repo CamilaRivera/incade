@@ -39,7 +39,6 @@ app.get('/', (req, res) => {
   res.render('main', {
     contactEmail: process.env.EMAIL_RECEIVER,
     dev: process.env.DEV,
-    recaptchaSiteKey: process.env.RECAPTCH_V3_KEY,
     contactForm: {},
   });
 });
@@ -72,42 +71,12 @@ const validateFormData = (formData) => {
   return errors;
 };
 
-const validateRecaptcha = async (token) => {
-  console.log('validateRecaptcha token', token);
-  const url = `https://www.google.com/recaptcha/api/siteverify?response=${token}&secret=${process.env.RECAPTCH_V3_SECRET}`;
-  let { data } = await axios.post(url);
-  console.log('validateRecaptcha data', data);
-  if (!data.success) {
-    console.log('Recaptcha v3 rejected! token length: ', token.length);
-    return false;
-  }
-  console.log('Recaptcha v3 approved! token length: ', token.length);
-  return true;
-}
-
-
 app.get('/contacto', async (req, res) => {
   res.redirect('/#contact');
 });
 
 app.post('/contacto', async (req, res) => {
-  const { email, name, message, token } = req.body;
-  if (!await validateRecaptcha(token || '')) {
-    res.render('main', {
-      contactEmail: process.env.EMAIL_RECEIVER,
-      contactForm: {
-        errors: {
-          recaptcha: true,
-        },
-        data: {
-          email, name, message
-        }
-      },
-      dev: process.env.DEV,
-      recaptchaSiteKey: process.env.RECAPTCH_V3_KEY
-    });
-    return;
-  }
+  const { email, name, message } = req.body;
   const errors = validateFormData({ email, name, message });
   if (Object.keys(errors).length > 0) {
     res.render('main', {
@@ -121,7 +90,6 @@ app.post('/contacto', async (req, res) => {
         },
       },
       dev: process.env.DEV,
-      recaptchaSiteKey: process.env.RECAPTCH_V3_KEY
     });
     return;
   }
@@ -158,7 +126,6 @@ app.post('/contacto', async (req, res) => {
           errors: { emailFailure: true },
         },
         dev: process.env.DEV,
-        recaptchaSiteKey: process.env.RECAPTCH_V3_KEY
       });
     }
     else {
@@ -172,7 +139,6 @@ app.post('/contacto', async (req, res) => {
           },
         },
         dev: process.env.DEV,
-        recaptchaSiteKey: process.env.RECAPTCH_V3_KEY
       });
     }
   });
