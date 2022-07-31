@@ -7292,23 +7292,10 @@ body {
   margin-bottom: 2rem; }
 
 .nav-link {
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-left: 7px;
-  padding-right: 7px;
-  font-size: 1rem;
-  height: auto;
-  font-style: normal;
   color: #444 !important;
-  font-weight: 400;
-  letter-spacing: 1px;
-  margin-right: 0.25rem; }
+  letter-spacing: 1px; }
   .nav-link:hover {
-    background: #ddd !important;
-    color: #2D95EF !important;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px; }
+    color: #2D95EF !important; }
 
 .carousel-item {
   height: 75vh;
