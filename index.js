@@ -16,12 +16,14 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.json());       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-}));
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+app.use(
+  bodyParser.urlencoded({
+    // to support URL-encoded bodies
+    extended: true,
+  })
+);
 app.set('view engine', 'ejs');
-
 
 console.log('__dirname', __dirname);
 app.use(
@@ -29,7 +31,7 @@ app.use(
     src: __dirname + '/src/scss',
     dest: path.join(__dirname, 'public', 'assets', 'css'),
     debug: true,
-    prefix: '/assets/css'
+    prefix: '/assets/css',
   })
 );
 
@@ -53,8 +55,8 @@ app.get('/preguntas-frecuentes', (req, res) => {
 
 // create reusable transporter object using the default SMTP transport
 const transporter = nodemailer.createTransport({
-  port: 465,               // true for 465, false for other ports
-  host: "smtp.gmail.com",
+  port: 465, // true for 465, false for other ports
+  host: 'smtp.gmail.com',
   auth: {
     user: process.env.SMTP_EMAIL,
     pass: process.env.SMTP_PASS,
@@ -62,16 +64,18 @@ const transporter = nodemailer.createTransport({
   secure: true,
 });
 
-
 const validateFormData = (formData) => {
-  if ((!formData.email || !formData.email.trim()) && (!formData.phone || !formData.phone.trim())) {
-    return 'Debe ingresar un email o telefono'
+  if (
+    (!formData.email || !formData.email.trim()) &&
+    (!formData.phone || !formData.phone.trim())
+  ) {
+    return 'Debe ingresar un email o telefono';
   }
   return undefined;
 };
 
 app.get('/contacto', async (req, res) => {
-  res.redirect('/#contact');
+  res.redirect('/#contacto');
 });
 
 app.post('/contacto', async (req, res) => {
@@ -82,10 +86,13 @@ app.post('/contacto', async (req, res) => {
       contactEmail: process.env.EMAIL_RECEIVER,
       contactForm: {
         errors: {
-          message: error
+          message: error,
         },
         data: {
-          email, name, message, phone
+          email,
+          name,
+          message,
+          phone,
         },
       },
       dev: process.env.DEV,
@@ -95,8 +102,8 @@ app.post('/contacto', async (req, res) => {
 
   // Send email
   const mailData = {
-    from: process.env.SMTP_EMAIL,  // sender address
-    to: process.env.EMAIL_RECEIVER,   // list of receivers
+    from: process.env.SMTP_EMAIL, // sender address
+    to: process.env.EMAIL_RECEIVER, // list of receivers
     subject: 'Formulario contacto despidojusto.cl',
     text: `
         Has recibido un contacto:
@@ -122,21 +129,26 @@ app.post('/contacto', async (req, res) => {
         contactForm: {
           success: false,
           data: {
-            email, name, message, phone
+            email,
+            name,
+            message,
+            phone,
           },
           errors: { emailFailure: true },
         },
         dev: process.env.DEV,
       });
-    }
-    else {
+    } else {
       console.info('Email de contacto enviado con exito', email);
       res.render('main', {
         contactEmail: process.env.EMAIL_RECEIVER,
         contactForm: {
           success: true,
           data: {
-            email, name, message, phone
+            email,
+            name,
+            message,
+            phone,
           },
         },
         dev: process.env.DEV,
