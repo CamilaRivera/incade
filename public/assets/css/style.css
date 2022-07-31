@@ -7325,7 +7325,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10%;
+    padding: 10% 15%;
     max-width: 44.25rem;
     justify-content: flex-end;
     padding-bottom: 2rem; }
