@@ -4,7 +4,7 @@
   $(window).scroll(function (e) {
     var newScroll = $(window).scrollTop();
     if (previousScroll !== undefined) {
-      if (previousScroll < newScroll) {
+      if (previousScroll < newScroll && newScroll > 200) {
         navbar.removeClass('scrolled-up');
         navbar.addClass('scrolled-down');
       } else if (previousScroll > newScroll) {
