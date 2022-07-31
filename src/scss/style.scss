@@ -1,5 +1,6 @@
 $primary: #2d95ef;
 $secondary: #777;
+$hero-highlight: #393168;
 
 @import "./node_modules/bootstrap/scss/bootstrap";
 
@@ -199,7 +200,7 @@ body {
   
     em {
       font-size: 2rem;
-      color: $primary;
+      color: $hero-highlight;
       text-transform: uppercase;
       font-weight: 700;
       font-style: normal;
