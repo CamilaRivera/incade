@@ -43,6 +43,14 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/preguntas-frecuentes', (req, res) => {
+  res.render('faq', {
+    contactEmail: process.env.EMAIL_RECEIVER,
+    dev: process.env.DEV,
+    contactForm: {},
+  });
+});
+
 // create reusable transporter object using the default SMTP transport
 const transporter = nodemailer.createTransport({
   port: 465,               // true for 465, false for other ports

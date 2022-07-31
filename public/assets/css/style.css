@@ -7385,7 +7385,7 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%; }
 
 .navbar-brand {
-  width: 5rem;
+  width: 10rem;
   height: 6.25rem;
   margin-right: 0; }
   @media (min-width: 576px) {
@@ -7421,13 +7421,3 @@ a.text-dark:hover, a.text-dark:focus {
 .navbar__menu-title {
   font-size: 1.5rem;
   margin-bottom: 0; }
-
-/* Move reCAPTCHA v3 badge to the left */
-.grecaptcha-badge {
-  width: 70px !important;
-  overflow: hidden !important;
-  transition: all 0.3s ease !important;
-  left: 4px !important; }
-
-.grecaptcha-badge:hover {
-  width: 256px !important; }
