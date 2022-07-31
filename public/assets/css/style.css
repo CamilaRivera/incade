@@ -7307,9 +7307,6 @@ a.text-dark:hover, a.text-dark:focus {
     -moz-border-radius: 4px;
     border-radius: 4px; }
 
-.navbar-nav {
-  align-items: center; }
-
 .carousel-item {
   height: 38.5rem;
   background-size: cover;
@@ -7350,7 +7347,7 @@ a.text-dark:hover, a.text-dark:focus {
           font-size: 3rem; } }
     .carousel-item .carousel-item-text-content em {
       font-size: 2rem;
-      color: #2d95ef;
+      color: #393168;
       text-transform: uppercase;
       font-weight: 700;
       font-style: normal; }
@@ -7385,13 +7382,27 @@ a.text-dark:hover, a.text-dark:focus {
   width: 100%; }
 
 .navbar-brand {
-  width: 5rem;
-  height: 6.25rem;
+  padding: 0;
+  width: 10rem;
   margin-right: 0; }
   @media (min-width: 576px) {
     .navbar-brand {
       margin-right: 1rem;
       width: 12.5rem; } }
+
+.navbar-nav {
+  align-items: center; }
+
+.navbar {
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0; }
+  .navbar.scrolled-down {
+    transform: translateY(-100%); }
+  .navbar.scrolled-up {
+    transform: translateY(0); }
 
 .section-about__header-list {
   color: #2d95ef;
@@ -7422,12 +7433,5 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 1.5rem;
   margin-bottom: 0; }
 
-/* Move reCAPTCHA v3 badge to the left */
-.grecaptcha-badge {
-  width: 70px !important;
-  overflow: hidden !important;
-  transition: all 0.3s ease !important;
-  left: 4px !important; }
-
-.grecaptcha-badge:hover {
-  width: 256px !important; }
+.faq-header {
+  margin: 2rem; }

@@ -1,0 +1,17 @@
+<script>
+  var navbar = $('.navbar');
+  var previousScroll = undefined;
+  $(window).scroll(function (e) {
+    var newScroll = $(window).scrollTop();
+    if (previousScroll !== undefined) {
+      if (previousScroll < newScroll) {
+        navbar.removeClass('scrolled-up');
+        navbar.addClass('scrolled-down');
+      } else if (previousScroll > newScroll) {
+        navbar.removeClass('scrolled-down');
+        navbar.addClass('scrolled-up');
+      }
+    }
+    previousScroll = newScroll;
+  });
+</script>

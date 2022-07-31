@@ -146,10 +146,6 @@ body {
   }
 }
 
-.navbar-nav {
-  align-items: center;
-}
-
 .carousel-item {
   height: 38.5rem;
   background-size: cover;
@@ -247,12 +243,32 @@ body {
 }
 
 .navbar-brand {
+  padding: 0;
   width: 10rem;
-  height: 6.25rem;
   margin-right: 0;
   @include media-breakpoint-up(sm) {
     margin-right: 1rem;
     width: 12.5rem;
+  }
+}
+
+.navbar-nav {
+  align-items: center;
+}
+
+.navbar {
+  transition: transform 0.3s ease-in-out;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+
+  &.scrolled-down {
+    transform: translateY(-100%);
+  }
+  
+  &.scrolled-up {
+    transform: translateY(0);
   }
 }
 
@@ -291,4 +307,8 @@ body {
 .navbar__menu-title {
   font-size: 1.5rem;
   margin-bottom: 0;
+}
+
+.faq-header {
+  margin: 2rem;
 }
