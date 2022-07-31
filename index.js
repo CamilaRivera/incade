@@ -64,19 +64,10 @@ const transporter = nodemailer.createTransport({
 
 
 const validateFormData = (formData) => {
-  const errors = {};
-  if (!formData.email || !formData.email.trim()) {
-    errors.email = 'Email';
+  if ((!formData.email || !formData.email.trim()) && (!formData.phone || !formData.phone.trim())) {
+    return 'Debe ingresar un email o telefono'
   }
-  if (!formData.name || !formData.name.trim()) {
-    errors.name = 'Nombre';
-  }
-  if (!formData.message || !formData.message.trim()) {
-    errors.message = 'Mensaje';
-  }
-  console.log('validateFormData formData', formData);
-  console.log('validateFormData errors', errors);
-  return errors;
+  return undefined;
 };
 
 app.get('/contacto', async (req, res) => {
@@ -84,17 +75,17 @@ app.get('/contacto', async (req, res) => {
 });
 
 app.post('/contacto', async (req, res) => {
-  const { email, name, message } = req.body;
-  const errors = validateFormData({ email, name, message });
-  if (Object.keys(errors).length > 0) {
+  const { email, name, message, phone } = req.body;
+  const error = validateFormData({ email, name, message, phone });
+  if (error) {
     res.render('main', {
       contactEmail: process.env.EMAIL_RECEIVER,
       contactForm: {
         errors: {
-          message: `Los campos ${Object.values(errors).join(', ')} son obligatorios`
+          message: error
         },
         data: {
-          email, name, message,
+          email, name, message, phone
         },
       },
       dev: process.env.DEV,
@@ -109,14 +100,16 @@ app.post('/contacto', async (req, res) => {
     subject: 'Formulario contacto despidojusto.cl',
     text: `
         Has recibido un contacto:
-        Email: ${email}
         Nombre: ${name}
+        Email: ${email}
+        Telefono: ${phone}
         Mensaje: ${message}
       `,
     html: `
       <b>Hola!</b><br>
       Has recibido un contacto:<br/><br/>
       <b>Email</b>: ${email}<br/>
+      <b>Telefono</b>: ${phone}<br/>
       <b>Nombre</b>: ${name}<br/>
       <b>Mensaje</b>: ${message}<br/>
       `,
@@ -129,7 +122,7 @@ app.post('/contacto', async (req, res) => {
         contactForm: {
           success: false,
           data: {
-            email, name, message,
+            email, name, message, phone
           },
           errors: { emailFailure: true },
         },
@@ -143,7 +136,7 @@ app.post('/contacto', async (req, res) => {
         contactForm: {
           success: true,
           data: {
-            email, name, message,
+            email, name, message, phone
           },
         },
         dev: process.env.DEV,

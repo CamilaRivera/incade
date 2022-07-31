@@ -1,7 +1,7 @@
 
 <form action="/contacto#contact" method="post" class="contact-form">
   <div class="row">
-    <div class="col-md">
+    <div class="col-md-6 col-xl">
       <div class="form-group">
         <label for="name">Nombre</label>
         <input
@@ -10,14 +10,13 @@
           id="name"
           name="name"
           value="<%= contactForm.data?.name || '' %>"
-          required
           <%if (contactForm.success === true) { %>
             readonly="readonly"
           <% } %>
         />
       </div>
     </div>
-    <div class="col-md">
+    <div class="col-md-6 col-xl">
       <div class="form-group">
         <label for="email">Email</label>
         <input
@@ -26,7 +25,21 @@
           class="form-control p-3 rounded-0"
           id="email"
           value="<%= contactForm.data?.email || '' %>"
-          required
+          <%if (contactForm.success === true) { %>
+            readonly="readonly"
+          <% } %>
+        />
+      </div>
+    </div>
+    <div class="col-md-6 col-xl">
+      <div class="form-group">
+        <label for="phone">Telefono</label>
+        <input
+          name="phone"
+          type="phone"
+          class="form-control p-3 rounded-0"
+          id="phone"
+          value="<%= contactForm.data?.phone || '' %>"
           <%if (contactForm.success === true) { %>
             readonly="readonly"
           <% } %>
@@ -43,7 +56,6 @@
       rows="10"
       class="form-control p-3 rounded-0"
       id="message"
-      required
       <%if (contactForm.success === true) { %>
         readonly="readonly"
       <% } %>
