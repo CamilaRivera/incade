@@ -7311,7 +7311,7 @@ body {
     border-radius: 4px; }
 
 .carousel-item {
-  height: 38.5rem;
+  height: 75vh;
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat; }
@@ -7351,14 +7351,14 @@ body {
       @media (min-width: 768px) {
         .carousel-item .carousel-item-text-content .header {
           font-size: 3rem; } }
-    @media (max-width: 767.98px) {
+    @media (max-width: 575.98px) {
       .carousel-item .carousel-item-text-content .text-content {
         padding: 5%;
         margin: -5%;
         background: rgba(255, 255, 255, 0.5); } }
     .carousel-item .carousel-item-text-content em {
       font-size: 2rem;
-      color: #393168;
+      color: #2d95ef;
       text-transform: uppercase;
       font-weight: 700;
       font-style: normal; }
@@ -7438,7 +7438,7 @@ body {
   right: 2rem;
   z-index: 10; }
   .fixed-whatsapp-button .fa-whatsapp {
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 0.375rem 0.5rem; }
 
 .navbar__menu-title {
