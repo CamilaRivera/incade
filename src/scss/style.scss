@@ -174,7 +174,7 @@ body {
     justify-content: flex-end;
     padding-bottom: 2rem;
 
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(md) {
       justify-content: center;
       padding-bottom: 0;
     }
@@ -187,7 +187,7 @@ body {
     }
 
     .text-content {
-      @include media-breakpoint-down(xs) {
+      @include media-breakpoint-down(sm) {
         padding: 5%;
         margin: -5%;
         background: rgba(255,255,255, 0.5);
