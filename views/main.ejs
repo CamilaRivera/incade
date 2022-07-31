@@ -2515,30 +2515,5 @@
         </div>
       </div>
     </div>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js?render=<%= recaptchaSiteKey %>"></script>
-    <script>
-      const form = document.querySelector('.contact-form');
-      const submitButton = document.querySelector('input[type=submit]');
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        submitButton.setAttribute('disabled', 'disabled');
-        grecaptcha.ready(function() {
-          grecaptcha.execute('<%= recaptchaSiteKey %>', {action: 'contact'}).then(function(token) {
-            const tokenInput = document.createElement('input');
-            tokenInput.setAttribute('value', token);
-            tokenInput.setAttribute('type', 'hidden');
-            tokenInput.setAttribute('name', 'token');
-
-            // Remove listener
-            const formClone = form.cloneNode(true);
-            formClone.appendChild(tokenInput);
-            form.parentNode.replaceChild(formClone, form);
-
-            formClone.submit();
-          });
-        });
-      });
-    </script>
   </body>
 </html>
