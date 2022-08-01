@@ -7326,16 +7326,19 @@ body {
       .carousel-item.image-1::after {
         background-image: url("/assets/images/size/10x/landing-1.jpg"); } }
   .carousel-item.image-2::after {
-    background-image: url("/assets/images/size/4x/landing-2.jpg"); }
+    background-image: url("/assets/images/size/2x/landing-2-vertical.jpg"); }
     @media (min-width: 576px) {
       .carousel-item.image-2::after {
-        background-image: url("/assets/images/size/6x/landing-2.jpg"); } }
+        background-image: url("/assets/images/size/4x/landing-2-vertical.jpg"); } }
     @media (min-width: 768px) {
       .carousel-item.image-2::after {
-        background-image: url("/assets/images/size/8x/landing-2.jpg"); } }
+        background-image: url("/assets/images/size/6x/landing-2-horizontal.jpg"); } }
     @media (min-width: 992px) {
       .carousel-item.image-2::after {
-        background-image: url("/assets/images/size/10x/landing-2.jpg"); } }
+        background-image: url("/assets/images/size/8x/landing-2-horizontal.jpg"); } }
+    @media (min-width: 1200px) {
+      .carousel-item.image-2::after {
+        background-image: url("/assets/images/size/10x/landing-2-horizontal.jpg"); } }
   .carousel-item.image-3::after {
     background-image: url("/assets/images/size/4x/landing-3.jpg"); }
     @media (min-width: 576px) {
@@ -7353,7 +7356,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 44.25rem;
+    max-width: 35.25rem;
     justify-content: flex-end; }
     @media (min-width: 768px) {
       .carousel-item .carousel-item-text-content {

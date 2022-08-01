@@ -172,18 +172,18 @@ body {
   }
 
   &.image-2::after {
-    background-image: url('/assets/images/size/4x/landing-2.jpg');
+    background-image: url('/assets/images/size/2x/landing-2-vertical.jpg');
     @include media-breakpoint-up(sm) {
-      background-image: url('/assets/images/size/6x/landing-2.jpg');
+      background-image: url('/assets/images/size/4x/landing-2-vertical.jpg');
     }
     @include media-breakpoint-up(md) {
-      background-image: url('/assets/images/size/8x/landing-2.jpg');
+      background-image: url('/assets/images/size/6x/landing-2-horizontal.jpg');
     }
     @include media-breakpoint-up(lg) {
-      background-image: url('/assets/images/size/10x/landing-2.jpg');
+      background-image: url('/assets/images/size/8x/landing-2-horizontal.jpg');
     }
     @include media-breakpoint-up(xl) {
-    
+      background-image: url('/assets/images/size/10x/landing-2-horizontal.jpg');
     }
   }
   &.image-3::after {
@@ -208,7 +208,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
-    max-width: 44.25rem;
+    max-width: 35.25rem;
     justify-content: flex-end;
 
     @include media-breakpoint-up(md) {
