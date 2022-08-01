@@ -157,4 +157,5 @@ app.post('/contacto', async (req, res) => {
   });
 });
 
-app.listen(process.env.PORT || 4000, () => console.log('Gator app listening on port 4000!'));
+const port = process.env.PORT || 4000;
+app.listen(port, () => console.log(`Gator app listening on port ${port}!`));
