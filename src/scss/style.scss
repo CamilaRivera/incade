@@ -6,6 +6,7 @@ $hero-highlight: $primary;
 
 body {
   padding-top: 100px;
+  padding-bottom: 250px;
 }
 
 .subheader {
@@ -209,6 +210,10 @@ body {
       @include media-breakpoint-up(md) {
         font-size: 3rem;
       }
+    }
+
+    .mobile-header {
+      color: #000;
     }
 
     .text-content {
