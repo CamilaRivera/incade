@@ -177,9 +177,11 @@ body {
     @include media-breakpoint-up(md) {
       justify-content: center;
       padding-bottom: 0;
+      max-width: 66%;
     }
 
     .header {
+      color: #fff;
       font-size: 2rem;
       @include media-breakpoint-up(md) {
         font-size: 3rem;
@@ -206,10 +208,8 @@ body {
     }
 
     p {
+      color: #fff;
       font-size: 1.5rem;
-      @include media-breakpoint-up(md) {
-        font-size: 2rem;
-      }
     }
   }
 }

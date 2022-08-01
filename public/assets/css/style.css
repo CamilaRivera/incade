@@ -7332,8 +7332,10 @@ body {
     @media (min-width: 768px) {
       .carousel-item .carousel-item-text-content {
         justify-content: center;
-        padding-bottom: 0; } }
+        padding-bottom: 0;
+        max-width: 66%; } }
     .carousel-item .carousel-item-text-content .header {
+      color: #fff;
       font-size: 2rem; }
       @media (min-width: 768px) {
         .carousel-item .carousel-item-text-content .header {
@@ -7353,10 +7355,8 @@ body {
         .carousel-item .carousel-item-text-content em {
           font-size: 3rem; } }
     .carousel-item .carousel-item-text-content p {
+      color: #fff;
       font-size: 1.5rem; }
-      @media (min-width: 768px) {
-        .carousel-item .carousel-item-text-content p {
-          font-size: 2rem; } }
 
 .about-us h2 {
   font-weight: 600; }
