@@ -7343,15 +7343,18 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10% 15%;
-    max-width: 44.25rem;
-    justify-content: flex-end;
-    padding-bottom: 2rem; }
+    justify-content: flex-end; }
     @media (min-width: 768px) {
       .carousel-item .carousel-item-text-content {
         justify-content: center;
-        padding-bottom: 0;
-        max-width: 66%; } }
+        max-width: 50rem;
+        padding: 10% 0 0 15%; } }
+    @media (min-width: 768px) {
+      .carousel-item .carousel-item-text-content.slide-2 {
+        max-width: 32rem; } }
+    @media (min-width: 992px) {
+      .carousel-item .carousel-item-text-content.slide-2 {
+        max-width: 45rem; } }
     .carousel-item .carousel-item-text-content .header {
       color: #fff;
       font-size: 2rem; }
@@ -7362,9 +7365,14 @@ body {
       color: #000; }
     @media (max-width: 767.98px) {
       .carousel-item .carousel-item-text-content .text-content {
-        padding: 5%;
-        margin: -5%;
-        background: rgba(255, 255, 255, 0.5); } }
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.5);
+        width: 100%; } }
+    .carousel-item .carousel-item-text-content .header {
+      font-size: 2rem; }
+      @media (min-width: 768px) {
+        .carousel-item .carousel-item-text-content .header {
+          font-size: 2rem; } }
     .carousel-item .carousel-item-text-content em {
       font-size: 2rem;
       color: #2d95ef;
@@ -7373,10 +7381,15 @@ body {
       font-style: normal; }
       @media (min-width: 768px) {
         .carousel-item .carousel-item-text-content em {
-          font-size: 3rem; } }
+          font-size: 2rem; } }
     .carousel-item .carousel-item-text-content p {
       color: #fff;
       font-size: 1.5rem; }
+
+@media (max-width: 767.98px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    bottom: 10rem; } }
 
 .about-us h2 {
   font-weight: 600; }
