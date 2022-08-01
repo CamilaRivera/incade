@@ -7315,10 +7315,10 @@ body {
     background-position: top;
     background-repeat: no-repeat; }
   .carousel-item.image-1::after {
-    background-image: url("/assets/images/size/4x/landing-1.jpg"); }
+    background-image: url("/assets/images/size/4x/landing-1-vertical.jpg"); }
     @media (min-width: 576px) {
       .carousel-item.image-1::after {
-        background-image: url("/assets/images/size/6x/landing-1.jpg"); } }
+        background-image: url("/assets/images/size/6x/landing-1-vertical.jpg"); } }
     @media (min-width: 768px) {
       .carousel-item.image-1::after {
         background-image: url("/assets/images/size/8x/landing-1.jpg"); } }
