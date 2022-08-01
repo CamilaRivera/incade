@@ -193,15 +193,13 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
-    padding: 10% 15%;
     max-width: 44.25rem;
     justify-content: flex-end;
-    padding-bottom: 2rem;
 
     @include media-breakpoint-up(md) {
       justify-content: center;
-      padding-bottom: 0;
-      max-width: 66%;
+      max-width: 50rem;
+      padding: 10% 0 0 15%;
     }
 
     .header {
@@ -218,12 +216,19 @@ body {
 
     .text-content {
       @include media-breakpoint-down(sm) {
-        padding: 5%;
-        margin: -5%;
+        padding: 1.5rem;
         background: rgba(255,255,255, 0.5);
+        width: 100%;
       }
     }
   
+    .header {
+      font-size: 2rem;
+      @include media-breakpoint-up(md) {
+        font-size: 2rem;
+      }
+    }
+
     em {
       font-size: 2rem;
       color: $hero-highlight;
@@ -231,7 +236,7 @@ body {
       font-weight: 700;
       font-style: normal;
       @include media-breakpoint-up(md) {
-        font-size:3rem
+        font-size: 2rem
       }
     }
 
@@ -239,6 +244,11 @@ body {
       color: #fff;
       font-size: 1.5rem;
     }
+  }
+}
+.carousel-control-prev, .carousel-control-next {
+  @include media-breakpoint-down(sm) {
+    bottom: 10rem;
   }
 }
 
