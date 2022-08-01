@@ -142,7 +142,6 @@ body {
 
   &::after {
     content: "";
-    background: url('/assets/images/landing-1.jpg');
     opacity: 0.8;
     top: 0;
     left: 0;
@@ -153,14 +152,38 @@ body {
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
+  }
 
+  &.image-1::after {
+    background-image: url('/assets/images/size/4x/landing-1.jpg');
+    @include media-breakpoint-up(sm) {
+      background-image: url('/assets/images/size/6x/landing-1.jpg');
+    }
+    @include media-breakpoint-up(md) {
+      background-image: url('/assets/images/size/8x/landing-1.jpg');
+    }
+    @include media-breakpoint-up(lg) {
+      background-image: url('/assets/images/size/10x/landing-1.jpg');
+    }
+    @include media-breakpoint-up(xl) {
+    
+    }
   }
 
   &.image-2::after {
-    background-image: url('/assets/images/landing-2.jpg');
-  }
-  &.image-3::after {
-    background-image: url('/assets/images/landing-3.jpg');
+    background-image: url('/assets/images/size/4x/landing-2.jpg');
+    @include media-breakpoint-up(sm) {
+      background-image: url('/assets/images/size/6x/landing-2.jpg');
+    }
+    @include media-breakpoint-up(md) {
+      background-image: url('/assets/images/size/8x/landing-2.jpg');
+    }
+    @include media-breakpoint-up(lg) {
+      background-image: url('/assets/images/size/10x/landing-2.jpg');
+    }
+    @include media-breakpoint-up(xl) {
+    
+    }
   }
 
   .carousel-item-text-content {
