@@ -7202,7 +7202,8 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  padding-top: 100px; }
+  padding-top: 100px;
+  padding-bottom: 250px; }
 
 .subheader {
   color: #777;
@@ -7357,6 +7358,8 @@ body {
       @media (min-width: 768px) {
         .carousel-item .carousel-item-text-content .header {
           font-size: 3rem; } }
+    .carousel-item .carousel-item-text-content .mobile-header {
+      color: #000; }
     @media (max-width: 767.98px) {
       .carousel-item .carousel-item-text-content .text-content {
         padding: 5%;
