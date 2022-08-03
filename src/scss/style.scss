@@ -197,17 +197,8 @@ body {
 
     @include media-breakpoint-up(md) {
       justify-content: center;
-      max-width: 50rem;
+      max-width: 60%;
       padding: 10% 0 0 15%;
-    }
-
-    &.slide-2 {
-      @include media-breakpoint-up(md) {
-        max-width: 32rem;
-      }
-      @include media-breakpoint-up(lg) {
-        max-width: 45rem;
-      }
     }
 
     .header {
@@ -219,13 +210,13 @@ body {
     }
 
     .mobile-header {
-      color: #000;
+      color: #fff;
     }
 
     .text-content {
       // @include media-breakpoint-down(sm) {
         padding: 1.5rem;
-        background: rgba(255,255,255, 0.5);
+        background: rgba(0,0,0, 0.5);
         width: 100%;
       // }
     }

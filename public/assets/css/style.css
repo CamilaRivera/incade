@@ -7347,14 +7347,8 @@ body {
     @media (min-width: 768px) {
       .carousel-item .carousel-item-text-content {
         justify-content: center;
-        max-width: 50rem;
+        max-width: 60%;
         padding: 10% 0 0 15%; } }
-    @media (min-width: 768px) {
-      .carousel-item .carousel-item-text-content.slide-2 {
-        max-width: 32rem; } }
-    @media (min-width: 992px) {
-      .carousel-item .carousel-item-text-content.slide-2 {
-        max-width: 45rem; } }
     .carousel-item .carousel-item-text-content .header {
       color: #fff;
       font-size: 2rem; }
@@ -7362,10 +7356,10 @@ body {
         .carousel-item .carousel-item-text-content .header {
           font-size: 3rem; } }
     .carousel-item .carousel-item-text-content .mobile-header {
-      color: #000; }
+      color: #fff; }
     .carousel-item .carousel-item-text-content .text-content {
       padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(0, 0, 0, 0.5);
       width: 100%; }
     .carousel-item .carousel-item-text-content .header {
       font-size: 2rem; }
