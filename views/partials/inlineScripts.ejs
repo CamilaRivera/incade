@@ -10,27 +10,48 @@
 <script>
   window.addEventListener('DOMContentLoaded', function() {
     var navbar = $('.navbar');
-    var previousScroll = undefined;
-    $(window).scroll(function (e) {
+    var previousScroll = 0;
+    var navBarOpen = true;
+    var clickedMenuLink = false;
+
+    function closeNavBar() {
+      navbar.removeClass('scrolled-up');
+      navbar.addClass('scrolled-down');
+      navBarOpen = false;
+    }
+
+    function openNavBar() {
+      navbar.removeClass('scrolled-down');
+      navbar.addClass('scrolled-up');
+      navBarOpen = true;
+    }
+
+    function scrollListener() {
       var newScroll = $(window).scrollTop();
-      if (previousScroll !== undefined) {
-        if (previousScroll < newScroll && newScroll > 200) {
-          navbar.removeClass('scrolled-up');
-          navbar.addClass('scrolled-down');
-        } else if (previousScroll > newScroll) {
-          navbar.removeClass('scrolled-down');
-          navbar.addClass('scrolled-up');
+      if (!clickedMenuLink || Math.abs(newScroll - previousScroll) < 400) {
+        if (previousScroll < newScroll && newScroll > 200 && navBarOpen) {
+          closeNavBar();
+        } else if (previousScroll > newScroll && !navBarOpen) {
+          openNavBar();
         }
       }
       previousScroll = newScroll;
-    });
+    }
 
-    // For mobile, collapse the navbar on click
-    var navMain = $('.navbar-collapse'); // avoid dependency on #id
-    // "a:not([data-toggle])" - to avoid issues caused
-    // when you have dropdown inside navbar
-    navMain.on('click', 'a:not([data-toggle])', null, function () {
+    $(window).on('scroll', scrollListener);
+
+    var navMain = $('.navbar-collapse');
+    navMain.on('click', 'a.handle-scroll', null, function () {
+      if (window.location.pathname.endsWith('preguntas-frecuentes')) {
+        return;
+      }
+      clickedMenuLink = true;
       navMain.collapse('hide');
+      closeNavBar();
+      $(window).off('scroll');
+      setTimeout(function() {
+        $(window).on('scroll', scrollListener);
+      }, 200);
     });
   });
 </script>
