@@ -17,6 +17,7 @@
     function closeNavBar() {
       navbar.removeClass('scrolled-up');
       navbar.addClass('scrolled-down');
+      navMain.collapse('hide');
       navBarOpen = false;
     }
 
@@ -46,7 +47,6 @@
         return;
       }
       clickedMenuLink = true;
-      navMain.collapse('hide');
       closeNavBar();
       $(window).off('scroll');
       setTimeout(function() {
