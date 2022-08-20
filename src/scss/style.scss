@@ -136,7 +136,7 @@ body {
 }
 
 .carousel-item {
-  height: 75vh;
+  min-height: 75vh;
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -188,7 +188,7 @@ body {
   }
 
   .carousel-item-text-content {
-    height: 100%;
+    min-height: 75vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -198,7 +198,7 @@ body {
     @include media-breakpoint-up(md) {
       justify-content: center;
       max-width: 60%;
-      padding: 10% 0 0 15%;
+      padding: 4% 0 4% 15%;
     }
 
     .header {

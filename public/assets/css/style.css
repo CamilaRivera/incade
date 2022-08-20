@@ -7299,7 +7299,7 @@ body {
     color: #2D95EF !important; }
 
 .carousel-item {
-  height: 75vh;
+  min-height: 75vh;
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat; }
@@ -7338,7 +7338,7 @@ body {
       .carousel-item.image-2::after {
         background-image: url("/assets/images/size/10x/landing-2.jpg"); } }
   .carousel-item .carousel-item-text-content {
-    height: 100%;
+    min-height: 75vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -7348,7 +7348,7 @@ body {
       .carousel-item .carousel-item-text-content {
         justify-content: center;
         max-width: 60%;
-        padding: 10% 0 0 15%; } }
+        padding: 4% 0 4% 15%; } }
     .carousel-item .carousel-item-text-content .header {
       color: #fff;
       font-size: 2rem; }
